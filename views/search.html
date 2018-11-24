@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>xabash - search quotes</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.send = function () {
+                $.post('/search', {quote_id: $('#quote_id').val(), content: $('#content').val(), tags: $('#tags').val(), upvotes: $('#upvotes').val(), downvotes: $('downvotes').val()}, function (data, result) {
+                    alert(data);
+                    alert(result);
+                });
+            }
+        </script>
+        <h1>search quotes</h1>
+        <input id="quote_id" placeholder="quote id...">
+        <input id="content" placeholder="quote content...">
+        <input id="tags" placeholder="tags...">
+        <input id="upvotes" placeholder="upvotes... (more than)">
+        <input id="downvotes" placeholder="downvotes... (more than)">
+        <button onclick="window.send()">send!</button>
+    </body>
+</html>

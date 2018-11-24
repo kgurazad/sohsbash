@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>xabash - new quote</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    </head>
+    <body>
+        <h1>new quote</h1>
+        <script type="text/javascript">
+            window.new = function () {
+                $.post('/new', {content: '// baby ate presidents candy\npresident: you crap sucking pig humper!', notes:'president r u ok', tags:'president baby candy'}, function (data, result) {
+                    alert('yay!');
+                });
+            }
+            window.upvote = function () {
+                $.post('/upvote', {id: 0, takeback: false}, function (data, result) {
+                    alert('yay!');
+                });
+            }
+            window.downvote = function () {
+                $.post('/downvote', {id: 0, takeback: false}, function (data, result) {
+                    alert('yay!');
+                });
+            }
+        </script>    
+        <button onclick="window.new()">post!</button>
+        <button onclick="window.upvote()">upvote!</button>
+        <button onclick="window.downvote()">downvote!</button>
+    </body>
+</html>

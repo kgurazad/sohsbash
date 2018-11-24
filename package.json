@@ -1,0 +1,28 @@
+{
+   "name": "xabash",
+   "version": "1.0.0",
+   "description": "a quote database with analytics for stanford ohs",
+   "main": "server.js",
+   "scripts": {
+      "test": "npm start",
+      "start": "node main.js"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/kgurazad/sohsbash.git"
+   },
+   "keywords": [
+      "quote"
+   ],
+   "author": "karan gurazada",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/kgurazad/xabash/issues"
+   },
+   "homepage": "https://github.com/kgurazad/xabash#readme",
+   "dependencies": {
+      "express": "^4.16.4",
+      "mongoose": "^5.3.13",
+      "pug": "^2.0.3"
+   }
+}
