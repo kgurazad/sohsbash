@@ -1,2 +1,2 @@
-# sohsbash
-quote database with analytics for stanford ohs :)
+# xabash
+quote database with analytics
