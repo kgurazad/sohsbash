@@ -19,9 +19,9 @@ var render = function (quotes) {
 		html += '</ol></nav>';
 		html += '<div class="quoteContent"><pre><code>';
 		html += quote.content;
-		html += '</pre></code></div><pre><code>';
+		html += '</code></div class="quoteNotes"><p>Notes: ';
 		html += quote.notes;
-		html += '</pre></code></div>';
+		html += '</p></code></div>';
 		$('#quotesArea').prepend(html);
 	}
 }
