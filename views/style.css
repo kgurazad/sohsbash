@@ -20,9 +20,16 @@
 }
 
 .quoteNotes {
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .breadcrumb, p, pre {
     margin: 0rem;
+}
+
+p.notes {
+    font-size: 9px;
 }
