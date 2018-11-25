@@ -12,11 +12,16 @@ var search = function () {
 
 var render = function (quotes) {
 	for (var quote of quotes) {
-		var html = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
+		var html = '<div class="section"><nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
 		for (var tag of quote.tags) {
 			html += '<li class="breadcrumb-item">' + tag + '</li>';
 		}
-		html += "</ol></div>";
+		html += "</ol></nav>";
+		html += "<pre><code>";
+		html += quote.content;
+		html += "</pre></code><pre><code>";
+		html += quote.notes;
+		html += "</pre></code></div>";
 		$('#quotesArea').prepend(html);
 	}
 }
