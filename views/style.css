@@ -15,7 +15,11 @@
 }
 
 .quoteContent {
-    background-color: #cccccc;
+    background-color: #dddddd;
+    padding: 1rem;
+}
+
+.quoteNotes {
     padding: 1rem;
 }
 
