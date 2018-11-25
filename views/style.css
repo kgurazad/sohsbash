@@ -17,5 +17,8 @@
 .quoteContent {
     background-color: #cccccc;
     padding: 1rem;
+}
+
+.breadcrumb {
     margin: 0rem;
 }
