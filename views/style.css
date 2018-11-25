@@ -3,13 +3,13 @@
 }
 
 #searchArea {
-    width: 23%;
+    width: 21%;
     float: right;
     height: 100%;
 }
 
 #quotesArea {
-    width: 73%;
+    width: 71%;
     height: 100%;
     float: left;
 }
