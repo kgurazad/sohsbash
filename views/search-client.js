@@ -17,11 +17,11 @@ var render = function (quotes) {
 			html += '<li class="breadcrumb-item">' + tag + '</li>';
 		}
 		html += '</ol></nav>';
-		html += '<div class="quoteContent"><pre><code>';
+		html += '<div class="quoteContent"><code>';
 		html += quote.content;
 		html += '</code></div class="quoteNotes"><p>Notes: ';
 		html += quote.notes;
-		html += '</p></code></div>';
+		html += '</p></div>';
 		$('#quotesArea').prepend(html);
 	}
 }
