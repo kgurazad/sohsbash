@@ -12,16 +12,16 @@ var search = function () {
 
 var render = function (quotes) {
 	for (var quote of quotes) {
-		var html = '<div class="section"><nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
+		var html = '<div class="quote section"><nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
 		for (var tag of quote.tags) {
 			html += '<li class="breadcrumb-item">' + tag + '</li>';
 		}
 		html += "</ol></nav>";
-		html += "<blockquote>";
+		html += "<div class=\"quoteContent\"><pre><code>";
 		html += quote.content;
-		html += "</blockquote><footer>";
+		html += "</pre></code></div><pre><code>";
 		html += quote.notes;
-		html += "</footer></div>";
+		html += "</pre></code></div>";
 		$('#quotesArea').prepend(html);
 	}
 }

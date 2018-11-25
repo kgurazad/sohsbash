@@ -13,3 +13,7 @@
     height: 100%;
     float: left;
 }
+
+.quoteContent {
+    background-color: #cccccc;
+}
