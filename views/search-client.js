@@ -12,7 +12,7 @@ var search = function () {
 
 var render = function (quotes) {
 	for (var quote of quotes) {
-		alert(quote);
+		alert(JSON.stringify(quote));
 	}
 }
 
