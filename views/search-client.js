@@ -12,7 +12,12 @@ var search = function () {
 
 var render = function (quotes) {
 	for (var quote of quotes) {
-		alert(JSON.stringify(quote));
+		var html = '<nav aria-label="breadcrumb"><ol class="breadcrumb><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
+		for (var tag of quotes.tags) {
+			html += '<li class="breadcrumb-item">' + tag + '</li>';
+		}
+		html += "</ol></div>";
+		$('#quotesArea').prepend(html);
 	}
 }
 
