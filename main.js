@@ -12,8 +12,8 @@ const quote = require(__dirname + '/models/quote');
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
-app.get('/static/:file', function (req, res) {
-	res.sendFile(__dirname + '/static/' + req.params.file);
+app.get('/views/:file', function (req, res) {
+	res.sendFile(__dirname + '/views/' + req.params.file);
 });
 app.get('/new', function (req, res) {
 	res.sendFile(__dirname + '/views/new.html');
