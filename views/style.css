@@ -23,6 +23,6 @@
     padding: 1rem;
 }
 
-.breadcrumb {
+.breadcrumb, p {
     margin: 0rem;
 }
