@@ -5,9 +5,11 @@
 #searchArea {
     width: 25%;
     float: right;
+    height: 100%;
 }
 
 #quotesArea {
     width: 75%;
-    float: right;
+    height: 100%;
+    float: left;
 }
