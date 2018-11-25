@@ -17,9 +17,9 @@ var render = function (quotes) {
 			html += '<li class="breadcrumb-item">' + tag + '</li>';
 		}
 		html += '</ol></nav>';
-		html += '<div class="quoteContent"><code>';
+		html += '<div class="quoteContent"><pre><code>';
 		html += quote.content;
-		html += '</code></div><div class="quoteNotes"><p>Notes: ';
+		html += '</code></pre></div><div class="quoteNotes"><p>Notes: ';
 		html += quote.notes;
 		html += '</p></div>';
 		$('#quotesArea').prepend(html);
