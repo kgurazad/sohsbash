@@ -1,15 +1,15 @@
 .section {
-    margin: 1rem;
+    margin: 1%;
 }
 
 #searchArea {
-    width: 21%;
+    width: 23%;
     float: right;
     height: 100%;
 }
 
 #quotesArea {
-    width: 71%;
+    width: 73%;
     height: 100%;
     float: left;
 }
