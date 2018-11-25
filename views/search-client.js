@@ -12,7 +12,7 @@ var search = function () {
 
 var render = function (quotes) {
 	for (var quote of quotes) {
-		var html = '<nav aria-label="breadcrumb"><ol class="breadcrumb><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
+		var html = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quote #' + quote.id + "</li>";
 		for (var tag of quote.tags) {
 			html += '<li class="breadcrumb-item">' + tag + '</li>';
 		}
