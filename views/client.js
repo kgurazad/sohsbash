@@ -49,7 +49,7 @@ $(document).ready(function () {
 	$('#searchButton').on('click', function () {
 		search();
 	});
-	$('body').on('click', '.vote', function () {
+	$('body').on('click', 'span.vote', function () {
 		var sp = $(this).attr(id).split('_');
 		var action = sp[0];
 		var id = Number(sp[1]);
