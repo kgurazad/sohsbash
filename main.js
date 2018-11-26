@@ -57,10 +57,14 @@ app.post('/new', function (req, res) {
 });
 app.post('/upvote', function (req, res) {
 	console.log(req.body.takeback);
-	quote.upvote(req.body.id, req.body.takeback);
+	quote.upvote(req.body.id, req.body.takeback, function (quote) {
+		res.send(quote);
+	});
 });
 app.post('/downvote', function (req, res) {
-	quote.downvote(req.body.id, req.body.takeback);
+	quote.downvote(req.body.id, req.body.takeback, function (quote) {
+		res.send(quote);
+	});
 });
 
 app.listen(process.env.PORT || 2020);
