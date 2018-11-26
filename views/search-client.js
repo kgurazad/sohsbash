@@ -11,6 +11,7 @@ var search = function () {
 }
 
 var render = function (quotes) {
+	$('#quotesArea').empty();
 	for (var quote of quotes) {
 		alert(quote);
 		var html = '<div class="quote section card"><nav aria-label="breadcrumb">' +
@@ -32,6 +33,7 @@ var render = function (quotes) {
 }
 
 $(document).ready(function () {
+	search();
 	$('#searchButton').on('click', function () {
 		search();
 	});
