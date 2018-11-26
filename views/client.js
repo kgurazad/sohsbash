@@ -25,7 +25,6 @@ var search = function () {
 var render = function (quotes) {
 	$('#quotesArea').empty();
 	for (var quote of quotes) {
-		alert(quote);
 		var html = '<div class="quote section card"><nav aria-label="breadcrumb">' +
 			'<ol class="breadcrumb"><li class="breadcrumb-item">#' + quote.id + '</li>' + 
 			'<li class="breadcrumb-item">' + quote.datePosted + '</li><li class="breadcrumb-item">' +

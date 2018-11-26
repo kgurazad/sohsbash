@@ -39,7 +39,7 @@ exports.upvote = function (id, takeback, cb) {
 		if (err) {
 			console.error(err);
 		}
-		console.log(quote);
+		console.log(quote + " of plox?");
 		cb(quote);
 	});
 }
