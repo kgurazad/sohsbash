@@ -30,31 +30,26 @@ exports.newQuote = function (content, notes, tags) {
 	});
 }
 
-exports.upvote = function (id, takeback, cb) {
-	console.log(takeback + ' ' + typeof takeback);
+exports.vote = function (action, id, takeback, cb) {
 	var n = 1;
 	if (takeback === true) {
 		n = -1;
 	}
-	quoteModel.findOneAndUpdate({id: id}, {$inc: {upvotes: n}}, {new: true}, function (err, quote) {
-		if (err) {
-			console.error(err);
-		}
-		cb(quote);
-	});
-}
-
-exports.downvote = function (id, takeback, cb) {
-	var n = 1;
-	if (takeback === true) {
-		n = -1;
+	if (action === 'up') {
+		quoteModel.findOneAndUpdate({id: id}, {$inc: {upvotes: n}}, {new: true}, function (err, quote) {
+			if (err) {
+				console.error(err);
+			}
+			cb(quote);
+		});
+	} else {
+		quoteModel.findOneAndUpdate({id: id}, {$inc: {downvotes: n}}, {new: true}, function (err, quote) {
+			if (err) {
+				console.error(err);
+			}
+			cb(quote);
+		});
 	}
-	quoteModel.findOneAndUpdate({id: id}, {$inc: {downvotes: n}}, {new: true}, function (err, quote) {
-		if (err) {
-			console.error(err);
-		}
-		cb(quote);
-	});
 }
 
 exports.setVerified = function (id, verified) {

@@ -1,13 +1,7 @@
 var vote = function (action, id, takeback) {
-	if (action === 'up') {
-		$.post('/upvote', {id: id, takeback: takeback}, function (data, result) {
-			alert(data);
-		});
-	} else {
-		$.post('/downvote', {id: id, takeback: takeback}, function (data, result) {
-			alert(data);
-		});
-	}
+	$.post('/vote', {action: action, id: id, takeback: takeback}, function (data, result) {
+		alert(JSON.stringify(data));
+	});
 }
 
 var search = function () {
