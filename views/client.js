@@ -50,7 +50,7 @@ $(document).ready(function () {
 		search();
 	});
 	$('body').on('click', 'span.vote', function () {
-		var sp = $(this).attr(id).split('_');
+		var sp = $(this).attr('id').split('_');
 		var action = sp[0];
 		var id = Number(sp[1]);
 		if ($(this).hasClass('takeback')) {
