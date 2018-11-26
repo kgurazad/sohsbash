@@ -31,6 +31,7 @@ exports.newQuote = function (content, notes, tags) {
 }
 
 exports.upvote = function (id, takeback, cb) {
+	console.log(typeof id);
 	var n = 1;
 	if (takeback === true) {
 		n = -1;
