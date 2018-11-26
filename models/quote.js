@@ -35,7 +35,7 @@ exports.upvote = function (id, takeback, cb) {
 	if (takeback === true) {
 		n = -1;
 	}
-	quoteModel.findOneAndUpdate({id: id}, {$inc: {upvotes: n}}, function (err, quote) {
+	quoteModel.findOneAndUpdate({id: id}, {$inc: {upvotes: n}}, {new: true}, function (err, quote) {
 		if (err) {
 			console.error(err);
 		}
@@ -50,7 +50,7 @@ exports.downvote = function (id, takeback, cb) {
 		console.log('uh oh')
 		n = -1;
 	}
-	quoteModel.findOneAndUpdate({id: id}, {$inc: {downvotes: n}}, function (err, quote) {
+	quoteModel.findOneAndUpdate({id: id}, {$inc: {downvotes: n}}, {new: true}, function (err, quote) {
 		if (err) {
 			console.error(err);
 		}
