@@ -33,3 +33,11 @@
 .quote {
     margin-top: 0rem;
 }
+
+.vote {
+    color: #3eb489;
+}
+
+.takeback {
+    color: #b43e69;
+}
