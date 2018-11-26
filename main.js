@@ -56,7 +56,7 @@ app.post('/new', function (req, res) {
 	quote.newQuote(req.body.content, req.body.notes, req.body.tags);
 });
 app.post('/vote', function (req, res) {
-	quote.upvote(req.body.action, req.body.id, req.body.takeback === 'true', function (quote) {
+	quote.vote(req.body.action, req.body.id, req.body.takeback === 'true', function (quote) {
 		res.send(quote);
 	});
 });
