@@ -30,7 +30,7 @@ exports.newQuote = function (content, notes, tags) {
 	});
 }
 
-exports.upvote = function (id, takeback = false) {
+exports.upvote = function (id, takeback, cb) {
 	var n = 1;
 	if (takeback === true) {
 		n = -1;
@@ -39,10 +39,11 @@ exports.upvote = function (id, takeback = false) {
 		if (err) {
 			console.error(err);
 		}
+		cb(quote);
 	});
 }
 
-exports.downvote = function (id, takeback) {
+exports.downvote = function (id, takeback, cb) {
 	var n = 1;
 	if (takeback === true) {
 		console.log('uh oh')
@@ -52,6 +53,7 @@ exports.downvote = function (id, takeback) {
 		if (err) {
 			console.error(err);
 		}
+		cb(quote);
 	});
 }
 
