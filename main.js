@@ -57,12 +57,12 @@ app.post('/new', function (req, res) {
 });
 app.post('/upvote', function (req, res) {
 	console.log(req.body);
-	quote.upvote(req.body.id, req.body.takeback, function (quote) {
+	quote.upvote(Number(req.body.id), req.body.takeback, function (quote) {
 		res.send(quote);
 	});
 });
 app.post('/downvote', function (req, res) {
-	quote.downvote(req.body.id, req.body.takeback, function (quote) {
+	quote.downvote(Number(req.body.id), req.body.takeback, function (quote) {
 		console.log(quote);
 		res.send(quote);
 	});
