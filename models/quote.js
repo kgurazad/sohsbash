@@ -39,6 +39,7 @@ exports.upvote = function (id, takeback, cb) {
 		if (err) {
 			console.error(err);
 		}
+		console.log(quote);
 		cb(quote);
 	});
 }

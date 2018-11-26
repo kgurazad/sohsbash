@@ -63,6 +63,7 @@ app.post('/upvote', function (req, res) {
 });
 app.post('/downvote', function (req, res) {
 	quote.downvote(req.body.id, req.body.takeback, function (quote) {
+		console.log(quote);
 		res.send(quote);
 	});
 });
