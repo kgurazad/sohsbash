@@ -56,6 +56,7 @@ app.post('/new', function (req, res) {
 	quote.newQuote(req.body.content, req.body.notes, req.body.tags);
 });
 app.post('/upvote', function (req, res) {
+	console.log(req.body.takeback + ' <- orig');
 	quote.upvote(req.body.id, Boolean(req.body.takeback), function (quote) {
 		res.send(quote);
 	});
