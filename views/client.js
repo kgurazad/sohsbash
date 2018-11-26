@@ -1,6 +1,6 @@
 var vote = function (action, id, takeback) {
-	$.post('/vote', {action: action, id: id, takeback: takeback}, function (data, result) {
-		alert(JSON.stringify(data));
+	$.post('/vote', {action: action, id: id, takeback: takeback}, function (quote, result) {
+		$('#indicator_'+id).html(quote.upvotes + '/' + (quote.upvotes - quote.downvotes) + '/' + quote.downvotes);
 	});
 }
 
