@@ -56,14 +56,12 @@ app.post('/new', function (req, res) {
 	quote.newQuote(req.body.content, req.body.notes, req.body.tags);
 });
 app.post('/upvote', function (req, res) {
-	console.log(req.body.takeback + ' ' + typeof req.body.takeback)
-	quote.upvote(req.body.id, req.body.takeback, function (quote) {
+	quote.upvote(req.body.id, Boolean(req.body.takeback), function (quote) {
 		res.send(quote);
 	});
 });
 app.post('/downvote', function (req, res) {
 	quote.downvote(req.body.id, req.body.takeback, function (quote) {
-		console.log(quote);
 		res.send(quote);
 	});
 });

@@ -31,6 +31,7 @@ exports.newQuote = function (content, notes, tags) {
 }
 
 exports.upvote = function (id, takeback, cb) {
+	console.log(takeback + ' ' + typeof takeback);
 	var n = 1;
 	if (takeback === true) {
 		n = -1;
@@ -39,7 +40,6 @@ exports.upvote = function (id, takeback, cb) {
 		if (err) {
 			console.error(err);
 		}
-		console.log(quote + " of plox?");
 		cb(quote);
 	});
 }
