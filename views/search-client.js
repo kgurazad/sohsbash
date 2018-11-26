@@ -17,8 +17,8 @@ var render = function (quotes) {
 		var html = '<div class="quote section card"><nav aria-label="breadcrumb">' +
 			'<ol class="breadcrumb"><li class="breadcrumb-item">#' + quote.id + '</li>' + 
 			'<li class="breadcrumb-item">' + quote.datePosted + '</li><li class="breadcrumb-item">' +
-			'<span class="vote" id="up_' + quote.id + '">UP</span> ' + (quote.upvotes - quote.downvotes) + '/' + (quote.upvotes + quote.downvotes) +
-			' <span class="vote" id="down_' + quote.id + '">DOWN</span></li>';
+			'<span class="vote" id="up_' + quote.id + '">UP</span> <code>' + (quote.upvotes - quote.downvotes) + '/' + (quote.upvotes + quote.downvotes) +
+			'</code> <span class="vote" id="down_' + quote.id + '">DOWN</span></li>';
 		for (var tag of quote.tags) {
 			html += '<li class="breadcrumb-item">' + tag + '</li>';
 		}
