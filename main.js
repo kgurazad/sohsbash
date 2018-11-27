@@ -53,6 +53,7 @@ app.post('/search', function (req, res) {
 	}
 })
 app.post('/new', function (req, res) {
+	console.log(req.body);
 	quote.newQuote(req.body.qc, req.body.qn, req.body.qt, function (quote) {
 		res.send(quote);
 	});
