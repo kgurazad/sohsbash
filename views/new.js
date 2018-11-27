@@ -1,6 +1,9 @@
 $(document).ready(function () {
 	$('#new').on('click', function () {
-		newQuote($('#content').val(), $('#notes').val(), $('#tags').val, function (quote) {
+		newQuote($('textarea#content').val(),
+			$('input#notes').val(),
+			$('input#tags').val,
+			function (quote) {
 			alert(JSON.stringify(quote));
 		});
 	});
