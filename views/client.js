@@ -1,6 +1,29 @@
 var vote = function (action, id, takeback) {
+	var upvotes = JSON.parse(Cookies.get('upvotes') || '[]');
+	var downvotes = JSON.parse(Cookies.get('downvotes') || '[]');
+	if ((upvotes.contains(id) && action === 'down') || (downvotes.contains(id) && action === 'up')) {
+		alert('you\'ve already voted on this quote!');
+		return;
+	}
+	if (action === 'up') {
+		if (takeback === true) {
+			upvotes.splice(upvotes.indexOf(id), 1);
+		} else {
+			upvotes.push(id);
+		}
+	} else {
+		if (takeback === true) {
+			downvotes.splice(downvotes.indexOf(id), 1)
+		} else {
+			downvotes.push(id);
+		}
+	}
 	$.post('/vote', {action: action, id: id, takeback: takeback}, function (quote, result) {
-		$('#indicator_'+id).html(quote.upvotes + '/' + (quote.upvotes - quote.downvotes) + '/' + quote.downvotes);
+		$('#indicator_'+id).html(quote.upvotes + '/' +
+			(quote.upvotes - quote.downvotes) + '/' +
+			quote.downvotes);
+		Cookies.set('upvotes', JSON.stringify(upvotes));
+		Cookies.set('downvotes', JSON.stringify(downvotes));
 	});
 }
 
@@ -17,6 +40,8 @@ var search = function () {
 }
 
 var render = function (quotes) {
+	var upvotes = JSON.parse(Cookies.get('upvotes') || '[]');
+	var downvotes = JSON.parse(Cookies.get('downvotes') || '[]');
 	$('#quotesArea').empty();
 	for (var quote of quotes) {
 		var html = '<div class="quote section card"><nav aria-label="breadcrumb">' +
@@ -34,6 +59,12 @@ var render = function (quotes) {
 		html += quote.notes;
 		html += '</p></div>';
 		$('#quotesArea').prepend(html);
+		for (var upvote of upvotes) {
+			$('#up_' + upvote).addClass('takeback')
+		}
+		for (var downvote of downvotes) {
+			$('#down_' + downvote).addClass('takeback');
+		}
 	}
 }
 
@@ -46,12 +77,6 @@ $(document).ready(function () {
 		var sp = $(this).attr('id').split('_');
 		var action = sp[0];
 		var id = Number(sp[1]);
-		if ($(this).hasClass('takeback')) {
-			$(this).removeClass('takeback');
-			vote(action, id, true);
-		} else {
-			$(this).addClass('takeback');
-			vote(action, id, false);
-		}
+		vote(action, id, $(this).hasClass('takeback'));
 	});
 });
