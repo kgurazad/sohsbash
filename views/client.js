@@ -12,14 +12,24 @@ var vote = function (action, id, takeback) {
 	if (action === 'up') {
 		if (takeback === true) {
 			upvotes.splice(upvotes.indexOf(id), 1);
+			$('#up_' + id).removeClass('takeback');
 		} else {
+			if (upvotes.contains(id)) {
+				alert('you\'ve already upvoted this quote!');
+			}
 			upvotes.push(id);
+			$('#up_' + id).addClass('takeback');
 		}
 	} else {
 		if (takeback === true) {
 			downvotes.splice(downvotes.indexOf(id), 1)
+			$('#down_' + id).removeClass('takeback');
 		} else {
+			if (downvotes.contains(id)) {
+				alert('you\'ve already downvoted this quote!');
+			}
 			downvotes.push(id);
+			$('#down_' + id).addClass('takeback');
 		}
 	}
 	$.post('/vote', {action: action, id: id, takeback: takeback}, function (quote, result) {
