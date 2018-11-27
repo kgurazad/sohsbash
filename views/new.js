@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	$('#new').on('click', function () {
-		new ($('#content').val(), $('#notes').val(), $('#tags').val, function (quote) {
+		newQuote($('#content').val(), $('#notes').val(), $('#tags').val, function (quote) {
 			alert(JSON.stringify(quote));
 		});
 	});
