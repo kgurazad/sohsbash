@@ -1,3 +1,7 @@
+Array.prototype.contains = function (item) {
+	return this.indexOf(item) !== -1;
+}
+
 var vote = function (action, id, takeback) {
 	var upvotes = JSON.parse(Cookies.get('upvotes') || '[]');
 	var downvotes = JSON.parse(Cookies.get('downvotes') || '[]');
