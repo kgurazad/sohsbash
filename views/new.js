@@ -4,9 +4,9 @@ $(document).ready(function () {
 		alert($('input#notes').val());
 		alert($('input#tags').val());
 		$.post('/new', {
-				quoteContent: $('textarea#content').val(),
-				quoteNotes: $('input#notes').val(),
-				quoteTags: $('input#tags').val
+				qc: $('textarea#content').val(),
+				qn: $('input#notes').val(),
+				qt: $('input#tags').val
 			}, function (quote, result) {
 			alert(JSON.stringify(quote));
 		});
