@@ -93,7 +93,7 @@ var render = function (quotes) {
 }
 
 var newQuote = function (content, notes, tags, cb) {
-	$.post('/new', {content: content, notes: notes, tags: tags}, function (data, result) {
+	$.post('/new', {quoteContent: content, quoteNotes: notes, quoteTags: tags}, function (data, result) {
 		typeof cb === 'function' && cb(data);
 	});
 }
