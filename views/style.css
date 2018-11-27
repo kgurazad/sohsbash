@@ -41,8 +41,3 @@
 .takeback {
     color: #b43e69;
 }
-
-textarea, input, h1, button#new {
-    margin: 1%;
-    width: 98%
-}
