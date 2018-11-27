@@ -3,10 +3,11 @@ $(document).ready(function () {
 		alert($('textarea#content').val());
 		alert($('input#notes').val());
 		alert($('input#tags').val());
-		newQuote($('textarea#content').val(),
-			$('input#notes').val(),
-			$('input#tags').val,
-			function (quote) {
+		$.post('/new', {
+				quoteContent: $('textarea#content').val(),
+				quoteNotes: $('input#notes').val(),
+				quoteTags: $('input#tags').val
+			}, function (quote, result) {
 			alert(JSON.stringify(quote));
 		});
 	});

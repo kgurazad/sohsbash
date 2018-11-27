@@ -91,9 +91,3 @@ var render = function (quotes) {
 		}
 	}
 }
-
-var newQuote = function (content, notes, tags, cb) {
-	$.post('/new', {quoteContent: content, quoteNotes: notes, quoteTags: tags}, function (data, result) {
-		typeof cb === 'function' && cb(data);
-	});
-}
