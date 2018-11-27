@@ -68,9 +68,10 @@ var render = function (quotes) {
 	var downvotes = JSON.parse(Cookies.get('downvotes') || '[]');
 	$('#quotesArea').empty();
 	for (var quote of quotes) {
+		var d = quote.datePosted.toLocaleString();
 		var html = '<div class="quote section card"><nav aria-label="breadcrumb">' +
 			'<ol class="breadcrumb"><li class="breadcrumb-item">#' + quote.id + '</li>' + 
-			'<li class="breadcrumb-item">' + quote.datePosted.toLocaleString() + '</li><li class="breadcrumb-item">' +
+			'<li class="breadcrumb-item">' + d + '</li><li class="breadcrumb-item">' +
 			'<span class="vote" id="up_' + quote.id + '">UP</span> <code id="indicator_' + quote.id + '">' + quote.upvotes + '/' + (quote.upvotes - quote.downvotes) + '/' + quote.downvotes +
 			'</code> <span class="vote" id="down_' + quote.id + '">DOWN</span></li>';
 		for (var tag of quote.tags) {
