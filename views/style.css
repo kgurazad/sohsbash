@@ -41,7 +41,7 @@
 .takeback {
     color: #b43e69;
 }
-#inputs, #new {
+#inputs, #new, h1 {
     width: 90%;
     margin: 1%;
     float: left;
