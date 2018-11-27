@@ -53,7 +53,9 @@ app.post('/search', function (req, res) {
 	}
 })
 app.post('/new', function (req, res) {
-	quote.newQuote(req.body.content, req.body.notes, req.body.tags);
+	quote.newQuote(req.body.content, req.body.notes, req.body.tags, function (quote) {
+		res.send(quote);
+	});
 });
 app.post('/vote', function (req, res) {
 	quote.vote(req.body.action, req.body.id, req.body.takeback === 'true', function (quote) {

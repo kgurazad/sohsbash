@@ -92,15 +92,8 @@ var render = function (quotes) {
 	}
 }
 
-$(document).ready(function () {
-	search();
-	$('#searchButton').on('click', function () {
-		search();
+var new = function (content, notes, tags, cb) {
+	$.post('/new', {content: content, notes: notes, tags: tags}, function (data, result) {
+		typeof cb === 'function' && cb(data);
 	});
-	$('body').on('click', 'span.vote', function () {
-		var sp = $(this).attr('id').split('_');
-		var action = sp[0];
-		var id = Number(sp[1]);
-		vote(action, id, $(this).hasClass('takeback'));
-	});
-});
+}
