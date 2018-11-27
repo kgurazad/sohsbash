@@ -6,7 +6,7 @@ $(document).ready(function () {
 		$.post('/new', {
 				qc: $('textarea#content').val(),
 				qn: $('input#notes').val(),
-				qt: $('input#tags').val
+				qt: $('input#tags').val()
 			}, function (quote, result) {
 			alert(JSON.stringify(quote));
 		});
