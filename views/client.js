@@ -11,22 +11,32 @@ var vote = function (action, id, takeback) {
 	}
 	if (action === 'up') {
 		if (takeback === true) {
+			if (!upvotes.contains(id)) {
+				alert('you haven\'t upvoted this quote yet!');
+				return;
+			}
 			upvotes.splice(upvotes.indexOf(id), 1);
 			$('#up_' + id).removeClass('takeback');
 		} else {
 			if (upvotes.contains(id)) {
 				alert('you\'ve already upvoted this quote!');
+				return;
 			}
 			upvotes.push(id);
 			$('#up_' + id).addClass('takeback');
 		}
 	} else {
 		if (takeback === true) {
+			if (!downvotes.contains(id)) {
+				alert('you haven\'t downvoted this quote yet!');
+				return;
+			}
 			downvotes.splice(downvotes.indexOf(id), 1)
 			$('#down_' + id).removeClass('takeback');
 		} else {
 			if (downvotes.contains(id)) {
 				alert('you\'ve already downvoted this quote!');
+				return;
 			}
 			downvotes.push(id);
 			$('#down_' + id).addClass('takeback');
