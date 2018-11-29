@@ -49,4 +49,6 @@
 
 #mainNavbar {
     background-color: #b1040e;
+    margin: 1%;
+    border-radius: 25px;
 }
