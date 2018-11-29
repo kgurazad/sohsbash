@@ -15,7 +15,7 @@
 }
 
 .quoteContent {
-    background-color: #dddddd;
+    background-color: #ddd;
     padding: 1rem;
 }
 
@@ -56,4 +56,8 @@
 
 .navbar-brand {
     font-size: 2rem;
+}
+
+#currentNavArea {
+    background-color: #eee;
 }

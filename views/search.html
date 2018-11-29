@@ -10,9 +10,17 @@
         <link rel="stylesheet" type="text/css" href="/views/style.css">
     </head>
     <body>
-        <div id="header" class="section">
-        <h1>search quotes (will add navbar eventually!)</h1>
-        </div>
+        <nav class="navbar navbar-expand-lg" id="mainNavbar">
+            <a href="/" class="navbar-brand">xabash</a>
+            <div class="navbar-nav">
+                <div class="nav-item nav-link currentNavArea">
+                    <a href="/search">Search</a>
+                </div>
+                <div class="nav-item nav-link">
+                    <a href="/new">Submit</a>
+                </div>
+            </div>
+        </nav>
         <div id="searchArea" class="section">
             <input id="quote_id" placeholder="quote id...">
             <input id="content" placeholder="quote content...">
