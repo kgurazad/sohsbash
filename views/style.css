@@ -37,6 +37,7 @@
     border-width: 1px;
     border-color: #666 #666 #666 #f66;
     z-index: 65535;
+    overflow: hidden;
 }
 
 .vote {
