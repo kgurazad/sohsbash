@@ -36,16 +36,15 @@
     border-style: solid;
     border-width: 1px;
     border-color: #666 #666 #666 #f66;
-
     overflow: hidden;
 }
 
 .vote {
-    color: #3eb489;
+    color: #099;
 }
 
 .takeback {
-    color: #b43e69;
+    color: #f66;
 }
 #new {
     width: 90%;
