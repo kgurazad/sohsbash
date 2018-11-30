@@ -53,7 +53,7 @@ app.post('/search', function (req, res) {
 	}
 })
 app.post('/new', function (req, res) {
-	quote.newQuote(req.body.content, req.body.notes, req.body.tags, function (quote) {
+	quote.newQuote(req.body.content, req.body.notes, req.body.tags.toLowerCase(), function (quote) {
 		res.send(quote);
 	});
 });
