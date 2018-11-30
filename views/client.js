@@ -80,9 +80,12 @@ var render = function (quotes) {
 		html += '</ol></nav>';
 		html += '<div class="quoteContent"><pre><code>';
 		html += quote.content;
-		html += '</code></pre></div><div class="quoteNotes"><p>Notes: ';
-		html += quote.notes;
-		html += '</p></div>';
+		if (quote.notes.length > 0) {
+			html += '</code></pre></div><div class="quoteNotes"><p>Notes: ';
+			html += quote.notes;
+			html += '</p>';
+		}
+		html += '</div';
 		$('#quotesArea').prepend(html);
 		for (var upvote of upvotes) {
 			$('#up_' + upvote).addClass('takeback')
