@@ -26,12 +26,13 @@
     padding-bottom: 0.5rem;
 }
 
-.breadcrumb, .card, p, pre {
+.breadcrumb, p, pre {
     margin: 0rem;
 }
 
 .quote {
     margin-top: 0rem;
+    border-radius: 12px;
 }
 
 .vote {
