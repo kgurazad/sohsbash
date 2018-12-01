@@ -54,10 +54,12 @@ app.post('/search', function (req, res) {
 		if (req.body.downvotes) {
 			queryParams.downvotes = {$gte: Number(req.body.downvotes)};
 		}
+		console.log(req.body.verified);
+		console.log(typeof req.body.verified);
 		if (req.body.verified) {
 			queryParams.verified = req.body.verified;
-			console.log(queryParams.verified);
 		}
+		console.log(queryParams.verified);
 		quote.search(queryParams, function (err, quotes) {
 			res.send(JSON.stringify(quotes));
 		});
