@@ -58,7 +58,7 @@ var search = function () {
 			tags: $('#tags').val(),
 			upvotes: $('#upvotes').val(),
 			downvotes: $('downvotes').val(),
-			verified: true;
+			verified: true
 		}, function (data, result) {
         render(JSON.parse(data));
     });
