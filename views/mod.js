@@ -51,3 +51,30 @@ var render = function (quotes) {
 		}
 	}
 }
+$(document).ready(function () {
+	search();
+	$('#searchButton').on('click', function () {
+		search();
+	});
+	$('body').on('click', 'span.vote', function () {
+		var sp = $(this).attr('id').split('_');
+		var action = sp[0];
+		var id = Number(sp[1]);
+		vote(action, id, $(this).hasClass('takeback'));
+	});
+	$('body').on('click', 'span.unreport', function () {
+		$.post('/report', {id: Number($(this).attr('id')), reported: false}, function (data, result) {
+			alert('yay');
+		});
+	});
+	$('body').on('click', 'span.verify', function () {
+		$.post('/verify', {id: Number($(this).attr('id')), verified: true}, function (data, result) {
+			alert('yay');
+		});
+	});
+	$('body').on('click', 'span.delete', function () {
+		$.post('/delete', {id: Number($(this).attr('id')), deleted: true}, function (data, result) {
+			alert('yay');
+		});
+	});
+});
