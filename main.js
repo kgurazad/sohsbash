@@ -56,6 +56,7 @@ app.post('/search', function (req, res) {
 		}
 		if (req.body.verified) {
 			queryParams.verified = req.body.verified;
+			console.log(queryParams.verified);
 		}
 		quote.search(queryParams, function (err, quotes) {
 			res.send(JSON.stringify(quotes));
