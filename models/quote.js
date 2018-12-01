@@ -24,7 +24,7 @@ exports.newQuote = function (content, notes, tags, cb) {
 			upvotes: 0,
 			downvotes: 0,
 			datePosted: new Date(),
-			reported: false;
+			reported: false,
 			verified: false, // lol fix this when we make the mod portal pl0x
 			deleted: false
 		});
