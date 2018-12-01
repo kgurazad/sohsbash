@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const quoteSchema = new mongoose.Schema({
+var mongoose = require('mongoose');
+var quoteSchema = new mongoose.Schema({
 	id: Number,
 	content: String,
 	notes: String,
@@ -8,9 +8,10 @@ const quoteSchema = new mongoose.Schema({
 	downvotes: Number,
 	datePosted: Date,
 	verified: Boolean,
-	deleted: Boolean
+	deleted: Boolean,
+	reported: Boolean
 });
-var quoteModel = mongoose.model("quote", quoteSchema);
+var quoteModel = mongoose.model('quote', quoteSchema);
 
 exports.newQuote = function (content, notes, tags, cb) {
 	var splitTags = tags.split(' ');
@@ -23,7 +24,8 @@ exports.newQuote = function (content, notes, tags, cb) {
 			upvotes: 0,
 			downvotes: 0,
 			datePosted: new Date(),
-			verified: /*false*/ true, // lol fix this when we make the mod portal pl0x
+			reported: false;
+			verified: false, // lol fix this when we make the mod portal pl0x
 			deleted: false
 		});
 		quote.save(function (err, quote) {
@@ -58,6 +60,14 @@ exports.vote = function (action, id, takeback, cb) {
 			cb(quote);
 		});
 	}
+}
+
+exports.setReported = function (id, reported) {
+	quoteModel.findOneAndUpdate({id: id}, {$set: {reported: reported}}, function (err, quote) {
+		if (err) {
+			console.error(err);
+		}
+	});
 }
 
 exports.setVerified = function (id, verified) {

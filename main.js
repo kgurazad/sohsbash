@@ -7,12 +7,13 @@ app.use(express.urlencoded());
 mongoose.connect(process.env.DB);
 
 const quote = require(__dirname + '/models/quote');
-// const mod = require(__dirname + '/models/mod');
+const mod = require(__dirname + '/models/mod');
 
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
 app.get('/views/:file', function (req, res) {
+	// there is a hole here for the mod portal but w/e
 	res.sendFile(__dirname + '/views/' + req.params.file);
 });
 app.get('/new', function (req, res) {
@@ -20,6 +21,15 @@ app.get('/new', function (req, res) {
 });
 app.get('/search', function (req, res) {
 	res.sendFile(__dirname + '/views/search.html'); // change this around later
+});
+app.get('/mod', function (req, res) {
+	mod.auth(req.query.username, req.query.password, function (auth) {
+		if (auth === true) {
+			res.sendFile(__dirname + '/views/mod.html');
+		} else {
+			res.sendStatus(401);
+		}
+	});
 });
 app.post('/search', function (req, res) {
 	try {
@@ -44,6 +54,9 @@ app.post('/search', function (req, res) {
 		if (req.body.downvotes) {
 			queryParams.downvotes = {$gte: Number(req.body.downvotes)};
 		}
+		if (req.body.verified) {
+			queryParams.verified = req.body.verified;
+		}
 		quote.search(queryParams, function (err, quotes) {
 			res.send(JSON.stringify(quotes));
 		});
@@ -60,6 +73,27 @@ app.post('/new', function (req, res) {
 app.post('/vote', function (req, res) {
 	quote.vote(req.body.action, req.body.id, req.body.takeback === 'true', function (quote) {
 		res.send(quote);
+	});
+});
+app.post('/report', function (req, res) {
+	quote.setReported(req.body.id, req.body.reported);
+});
+app.post('/verify', function (req, res) {
+	mod.auth(req.body.username, req.body.password, function (auth) {
+		if (auth === true) {
+			quote.setVerified(req.body.id, req.body.verified);
+		} else {
+			res.sendStatus(401);
+		}
+	});
+});
+app.post('/delete', function (req, res) {
+	mod.auth(req.body.username, req.body.password, function (auth) {
+		if (auth === true) {
+			quote.setDeleted(req.body.id, req.body.deleted);
+		} else {
+			res.sendStatus(401);
+		}
 	});
 });
 

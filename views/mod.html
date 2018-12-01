@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>xabash</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="/views/client.js"></script>
+        <script src="/views/mod.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/views/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg" id="mainNavbar">
+            <a href="/" class="navbar-brand">xabash</a>
+            <div class="navbar-nav">
+                <div class="nav-item nav-link">
+                    <a href="/search">Search</a>
+                </div>
+                <div class="nav-item nav-link">
+                    <a href="/new">Submit</a>
+                </div>
+            </div>
+        </nav>
+        <div id="searchArea" class="section">
+            <input id="quote_id" placeholder="quote id...">
+            <input id="content" placeholder="quote content...">
+            <input id="tags" placeholder="tags...">
+            <input id="upvotes" placeholder="upvotes... (more than)">
+            <input id="downvotes" placeholder="downvotes... (more than)">
+            <br>
+            <button class="btn btn-primary" id="searchButton">Search for Quotes</button>
+        </div>
+        <div id="quotesArea" class="section">
+        </div>
+    </body>
+</html>
