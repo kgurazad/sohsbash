@@ -6,20 +6,11 @@ var modSchema = new mongoose.Schema({
 var modModel = mongoose.model('mod', modSchema);
 
 exports.auth = function (username, password, cb) {
-	modModel.find({username: username, password: password}, function (err, mod) {
-		try {
-			if (err) {
-				console.error(err + ' ono!');
-				return;
-			}
-			console.log(mod.id);
-			if (mod.keys()) {
-				cb(true);
-			} else {
-				cb(false);
-			}
-		} catch (e) {
+	modModel.count({username: username, password: password}, function (err, count) {
+		if (count === 0) {
 			cb(false);
+			return;
 		}
+		cb(true);
 	});
 }
