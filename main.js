@@ -28,6 +28,7 @@ app.get('/mod', function (req, res) {
 	if (!req.query.username || !req.query.password) {
 		console.log('did not supply auth params!');
 		res.sendStatus(401);
+		return;
 	}
 	mod.auth(req.query.username, req.query.password, function (auth) {
 		if (auth === true) {

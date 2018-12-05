@@ -11,6 +11,7 @@ exports.auth = function (username, password, cb) {
 			console.error(err + ' ono!');
 			return;
 		}
+		console.log(mod + ' <- mod object');
 		if (mod) {
 			cb(true);
 		} else {
