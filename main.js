@@ -23,19 +23,14 @@ app.get('/search', function (req, res) {
 	res.sendFile(__dirname + '/views/search.html'); // change this around later
 });
 app.get('/mod', function (req, res) {
-	console.log('authing!');
-	console.log(req.query);
 	if (!req.query.username || !req.query.password) {
-		console.log('did not supply auth params!');
 		res.sendStatus(401);
 		return;
 	}
 	mod.auth(req.query.username, req.query.password, function (auth) {
 		if (auth === true) {
-			console.log('looks good!');
 			res.sendFile(__dirname + '/views/mod.html');
 		} else {
-			console.log('not today');
 			res.sendStatus(401);
 		}
 	});
