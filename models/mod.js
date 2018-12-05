@@ -12,7 +12,7 @@ exports.auth = function (username, password, cb) {
 			return;
 		}
 		console.log(mod + ' <- mod object');
-		if (mod) {
+		if (mod.username === usernamee && mod.password === password) {
 			cb(true);
 		} else {
 			cb(false);
