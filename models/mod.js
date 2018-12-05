@@ -13,7 +13,8 @@ exports.auth = function (username, password, cb) {
 		}
 		console.log(mod + ' <- mod object');
 		console.log(mod.keys());
-		console.log({}.keys());
+		var x = {};
+		console.log(x.keys());
 		console.log(mod['_id']);
 		if (mod['_id']) {
 			cb(true);
