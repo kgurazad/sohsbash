@@ -7,18 +7,18 @@ var modModel = mongoose.model('mod', modSchema);
 
 exports.auth = function (username, password, cb) {
 	modModel.find({username: username, password: password}, function (err, mod) {
-		if (err) {
-			console.error(err + ' ono!');
-			return;
-		}
-		console.log(mod + ' <- mod object');
-		console.log(mod.keys());
-		var x = new Object();
-		console.log(x.keys());
-		console.log(mod['_id']);
-		if (mod['_id']) {
-			cb(true);
-		} else {
+		try {
+			if (err) {
+				console.error(err + ' ono!');
+				return;
+			}
+			console.log(mod + ' <- mod object');
+			if (mod.keys()) {
+				cb(true);
+			} else {
+				cb(false);
+			}
+		} catch (e) {
 			cb(false);
 		}
 	});
