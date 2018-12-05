@@ -85,7 +85,7 @@ exports.delete = function (id) {
 			return;
 		}
 	});
-	quoteModel.updateMany({id: {$gt: id}}, {id: {$inc: -1}}, function (err, quotes) {
+	quoteModel.updateMany({id: {$gt: id}}, {$inc: {id: -1}}, function (err, quotes) {
 		if (err) {
 			console.error(err);
 			return;
