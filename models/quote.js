@@ -14,8 +14,9 @@ var quoteSchema = new mongoose.Schema({
 var quoteModel = mongoose.model('quote', quoteSchema);
 
 exports.newQuote = function (content, notes, tags, cb) {
+	tags = tags.trim();
 	var splitTags = tags.split(' ');
-	if (tags.trim() === '') {
+	if (tags === '') {
 		splitTags = [];
 	}
 	quoteModel.count({}, function (err, count) {
