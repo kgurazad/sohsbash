@@ -52,6 +52,7 @@ var render = function (quotes) {
 	}
 }
 $(document).ready(function () {
+	var url = new URLSearchParams(location.search);
 	search();
 	$('#searchButton').on('click', function () {
 		search();
@@ -68,12 +69,12 @@ $(document).ready(function () {
 		});
 	});
 	$('body').on('click', 'span.verify', function () {
-		$.post('/verify', {id: Number($(this).attr('id')), verified: true}, function (data, result) {
+		$.post('/verify', {id: Number($(this).attr('id')), verified: true, username: url.get('username'), password: url.get('password')}, function (data, result) {
 			alert('yay');
 		});
 	});
 	$('body').on('click', 'span.delete', function () {
-		$.post('/delete', {id: Number($(this).attr('id'))}, function (data, result) {
+		$.post('/delete', {id: Number($(this).attr('id')), username: url.get('username'), password: url.get('password')}, function (data, result) {
 			alert('yay');
 		});
 	});
