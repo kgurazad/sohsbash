@@ -12,7 +12,7 @@ exports.auth = function (username, password, cb) {
 				console.error(err + ' ono!');
 				return;
 			}
-			console.log(typeof mod);
+			console.log(mod.id);
 			if (mod.keys()) {
 				cb(true);
 			} else {
