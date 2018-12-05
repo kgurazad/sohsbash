@@ -23,10 +23,6 @@ app.get('/search', function (req, res) {
 	res.sendFile(__dirname + '/views/search.html'); // change this around later
 });
 app.get('/mod', function (req, res) {
-	if (!req.query.username || !req.query.password) {
-		res.sendStatus(401);
-		return;
-	}
 	mod.auth(req.query.username, req.query.password, function (auth) {
 		if (auth === true) {
 			res.sendFile(__dirname + '/views/mod.html');

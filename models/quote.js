@@ -15,6 +15,9 @@ var quoteModel = mongoose.model('quote', quoteSchema);
 
 exports.newQuote = function (content, notes, tags, cb) {
 	var splitTags = tags.split(' ');
+	if (tags.trim() === '') {
+		splitTags = [];
+	}
 	quoteModel.count({}, function (err, count) {
 		var quote = new quoteModel({
 			id: count,
