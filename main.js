@@ -23,10 +23,18 @@ app.get('/search', function (req, res) {
 	res.sendFile(__dirname + '/views/search.html'); // change this around later
 });
 app.get('/mod', function (req, res) {
+	console.log('authing!');
+	console.log(req.query);
+	if (!req.query.username || !req.query.password) {
+		console.log('did not supply auth params!');
+		res.sendStatus(401);
+	}
 	mod.auth(req.query.username, req.query.password, function (auth) {
 		if (auth === true) {
+			console.log('looks good!');
 			res.sendFile(__dirname + '/views/mod.html');
 		} else {
+			console.log('not today');
 			res.sendStatus(401);
 		}
 	});
@@ -54,12 +62,9 @@ app.post('/search', function (req, res) {
 		if (req.body.downvotes) {
 			queryParams.downvotes = {$gte: Number(req.body.downvotes)};
 		}
-		console.log(req.body.verified);
-		console.log(typeof req.body.verified);
 		if (req.body.verified) {
 			queryParams.verified = req.body.verified;
 		}
-		console.log(queryParams.verified);
 		quote.search(queryParams, function (err, quotes) {
 			res.send(JSON.stringify(quotes));
 		});
