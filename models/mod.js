@@ -8,7 +8,7 @@ var modModel = mongoose.model('mod', modSchema);
 exports.auth = function (username, password, cb) {
 	modModel.find({username: username, password: password}, function (err, mod) {
 		if (err) {
-			console.error(err);
+			console.error(err + ' ono!');
 			return;
 		}
 		if (mod) {

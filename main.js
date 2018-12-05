@@ -83,6 +83,7 @@ app.post('/report', function (req, res) {
 });
 app.post('/verify', function (req, res) {
 	mod.auth(req.body.username, req.body.password, function (auth) {
+		console.log(auth + ' ' + typeof auth);
 		if (auth === true) {
 			quote.setVerified(req.body.id, req.body.verified);
 		} else {

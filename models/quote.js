@@ -78,11 +78,19 @@ exports.setVerified = function (id, verified) {
 	});
 }
 
-exports.setDeleted = function (id, deleted) {
-	quoteModel.findOneAndUpdate({id: id}, {$set: {deleted: deleted}}, function (err, quote) {
+exports.delete = function (id) {
+	quoteModel.findOneAndDelete({id: id}, function (err, quote) {
 		if (err) {
 			console.error(err);
+			return;
 		}
+	});
+	quoteModel.updateMany({id: {$gt: id}}, {id: {$inc: -1}}, function (err, quotes) {
+		if (err) {
+			console.error(err);
+			return;
+		}
+		console.log(quotes);
 	});
 }
 
