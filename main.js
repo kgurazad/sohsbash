@@ -94,7 +94,7 @@ app.post('/verify', function (req, res) {
 app.post('/delete', function (req, res) {
 	mod.auth(req.body.username, req.body.password, function (auth) {
 		if (auth === true) {
-			quote.setDeleted(req.body.id, req.body.deleted);
+			quote.delete(req.body.id);
 		} else {
 			res.sendStatus(401);
 		}

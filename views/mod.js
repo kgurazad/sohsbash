@@ -73,7 +73,7 @@ $(document).ready(function () {
 		});
 	});
 	$('body').on('click', 'span.delete', function () {
-		$.post('/delete', {id: Number($(this).attr('id')), deleted: true}, function (data, result) {
+		$.post('/delete', {id: Number($(this).attr('id'))}, function (data, result) {
 			alert('yay');
 		});
 	});
